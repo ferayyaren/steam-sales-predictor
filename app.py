@@ -224,7 +224,7 @@ st.markdown("""
         border-left: 3px solid transparent;
         border-radius: 16px;
         padding: 20px;
-        box-shadow: 0 2px 10px rgba(30, 18, 24, 0.02);
+        box-shadow: 0 4px 16px rgba(30, 18, 24, 0.05);
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         height: 100%;
         display: flex;
@@ -237,7 +237,7 @@ st.markdown("""
         transform: translateY(-3px);
         border-color: rgba(129, 5, 65, 0.35);
         border-left-color: #810541;
-        box-shadow: 0 8px 24px rgba(129, 5, 65, 0.08);
+        box-shadow: 0 12px 28px rgba(129, 5, 65, 0.12);
     }
     .metric-card.revenue-card {
         border-left-color: #810541;
@@ -280,10 +280,10 @@ st.markdown("""
     .game-hero {
         background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF8 100%);
         border: 1px solid #ECE2D8;
-        border-radius: 18px;
+        border-radius: 20px;
         padding: 24px;
         margin-bottom: 24px;
-        box-shadow: 0 4px 22px rgba(30, 18, 24, 0.03);
+        box-shadow: 0 6px 20px rgba(30, 18, 24, 0.06);
         position: relative;
         overflow: hidden;
     }
@@ -424,9 +424,9 @@ st.markdown("""
     .chart-container-box {
         background-color: #FFFFFF;
         border: 1px solid #ECE2D8;
-        border-radius: 16px;
+        border-radius: 12px;
         padding: 20px;
-        box-shadow: 0 2px 10px rgba(30, 18, 24, 0.02);
+        box-shadow: 0 2px 8px rgba(30, 18, 24, 0.02);
         margin-bottom: 16px;
     }
     .chart-header-title {
@@ -1206,9 +1206,9 @@ if search_query:
                         <div class="hero-title-box">
                             <h2 class="hero-game-title">{game_data['name']}</h2>
                         </div>
-                        <div style="color: #63505B; font-size: 0.88rem; margin-bottom: 14px; line-height: 1.5;">
-                            <span style="font-weight: 600; color: #1E1218;">Geliştirici:</span> {', '.join(game_data['developers']) if game_data['developers'] else 'Belirtilmemiş'} &nbsp;•&nbsp; 
-                            <span style="font-weight: 600; color: #1E1218;">Yayıncı:</span> {', '.join(game_data['publishers']) if game_data['publishers'] else 'Belirtilmemiş'}
+                        <div style="color: #63505B; font-size: 0.88rem; margin-bottom: 14px; line-height: 1.8;">
+                            <div style="margin-bottom: 4px;"><span style="font-weight: 600; color: #1E1218;">Developer:</span> {', '.join(game_data['developers']) if game_data['developers'] else 'Unlisted'}</div>
+                            <div><span style="font-weight: 600; color: #1E1218;">Publisher:</span> {', '.join(game_data['publishers']) if game_data['publishers'] else 'Unlisted'}</div>
                         </div>
                         <div style="margin-top: 10px;">
                             {tags_html}
@@ -1216,7 +1216,7 @@ if search_query:
                         <div class="hero-primary-divider">
                             <div class="hero-stat-label">First-month sales forecast</div>
                             <div class="hero-primary-stat">~{forecast['month1_expected']:,}</div>
-                            <div class="hero-stat-sub">Confidence range: <span class="teal-accent-text">{forecast['month1_low']:,} – {forecast['month1_high']:,}</span> {unit_str.lower()}s</div>
+                            <div class="hero-stat-sub">Confidence range: <span class="teal-accent-text">{forecast['month1_low']:,} – {forecast['month1_high']:,}</span> {unit_str}</div>
                         </div>
                     </div>
                 </div>
@@ -1229,7 +1229,7 @@ if search_query:
                 st.markdown(f"""
                 <div class="metric-card">
                     <div>
-                        <div class="metric-eyebrow"><span style="width: 6px; height: 6px; background-color: #810541; border-radius: 50%; display: inline-block;"></span> CANLI TAKİPÇİ</div>
+                        <div class="metric-eyebrow"><span style="width: 6px; height: 6px; background-color: #810541; border-radius: 50%; display: inline-block;"></span> Live followers</div>
                         <div class="metric-value-display font-mono">{forecast['followers']:,}</div>
                     </div>
                     <div class="metric-pill-sub">
@@ -1242,7 +1242,7 @@ if search_query:
                 st.markdown(f"""
                 <div class="metric-card">
                     <div>
-                        <div class="metric-eyebrow"><span style="width: 6px; height: 6px; background-color: #810541; border-radius: 50%; display: inline-block;"></span> İSTEK LİSTESİ (WL)</div>
+                        <div class="metric-eyebrow"><span style="width: 6px; height: 6px; background-color: #810541; border-radius: 50%; display: inline-block;"></span> Wishlist (WL)</div>
                         <div class="metric-value-display font-mono">~{forecast['wishlists']:,}</div>
                     </div>
                     <div class="metric-pill-sub">
@@ -1255,7 +1255,7 @@ if search_query:
                 st.markdown(f"""
                 <div class="metric-card">
                     <div>
-                        <div class="metric-eyebrow"><span style="width: 6px; height: 6px; background-color: #810541; border-radius: 50%; display: inline-block;"></span> 1. AY SATIŞ HACMİ</div>
+                        <div class="metric-eyebrow"><span style="width: 6px; height: 6px; background-color: #810541; border-radius: 50%; display: inline-block;"></span> First-month sales volume</div>
                         <div class="metric-value-display font-mono">~{forecast['month1_expected']:,} <span style="font-size: 0.95rem; color: #7A6973; font-weight: 500;">{unit_str}</span></div>
                     </div>
                     <div class="metric-pill-sub">
@@ -1268,7 +1268,7 @@ if search_query:
                 st.markdown(f"""
                 <div class="metric-card revenue-card" style="background: linear-gradient(180deg, #FFFFFF 0%, #FDF8FA 100%);">
                     <div>
-                        <div class="metric-eyebrow" style="color: #810541;"><span style="width: 6px; height: 6px; background-color: #810541; border-radius: 50%; display: inline-block;"></span> 1. AY NET HASILAT</div>
+                        <div class="metric-eyebrow" style="color: #810541;"><span style="width: 6px; height: 6px; background-color: #810541; border-radius: 50%; display: inline-block;"></span> First-month net revenue</div>
                         <div class="metric-value-display revenue-accent font-mono">${forecast['month1_net_rev']:,.0f}</div>
                     </div>
                     <div class="metric-pill-sub">

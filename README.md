@@ -1,15 +1,15 @@
 # Steam Pre-Launch Sales Predictor 🎮
 
-[![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Streamlit App](https://img.shields.io/badge/Streamlit-Live-FF4B4B.svg)](https://streamlit.io)
-[![MongoDB](https://img.shields.io/badge/Database-MongoDB-green.svg)](https://www.mongodb.com)
+[![Python 3.9+](https://img.shields.io/badge/Python-3.9+-1E1218?style=flat&logo=python&logoColor=E8DFD5)](https://www.python.org/downloads/)
+[![License MIT](https://img.shields.io/badge/License-MIT-810541?style=flat)](LICENSE)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Live-810541?style=flat&logo=streamlit&logoColor=E8DFD5)](https://streamlit.io)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB-1E1218?style=flat&logo=mongodb&logoColor=E8DFD5)](https://www.mongodb.com)
 
 **An econometric machine learning system that predicts first-month sales, active players, and net developer revenue for Steam pre-launch games in real-time.**
 
 ---
 
-## 🎯 Problem Statement
+## ▸ Problem Statement
 
 Valve keeps all Steam game sales data **private**, leaving developers, investors, and publishers with no way to:
 - Benchmark against peer games
@@ -21,20 +21,20 @@ Valve keeps all Steam game sales data **private**, leaving developers, investors
 
 ---
 
-## ✨ Key Features
+## ✦ Key Features
 
-### 🔮 Real-Time Predictions
+### ◆ Real-Time Predictions
 - **First-Month Sales Forecast**: Predicted copies sold (paid games) or active players (F2P)
 - **Revenue Projection**: Net developer earnings after Steam's 30% commission
 - **Confidence Intervals**: Conservative (P25), Expected (P50), Optimistic (P75) scenarios
 - **Time-Based Forecasts**: 7-day, 1-month, and lifetime projections
 
-### 🧠 Hybrid ML Architecture
+### ◆ Hybrid ML Architecture
 - **Gradient Boosting Regressor**: 130 trees, trained on 320+ games (R² = 89.41%)
 - **Econometric Baseline**: Log-normal saturation curve validated against Gamalytic/VG Insights
 - **Dynamic Blending**: Seamless transition from econometric (micro-scale) to ML (mid-to-large scale)
 
-### 📊 Advanced Features
+### ◆ Advanced Features
 - **40+ Engineered Features**: Log transforms, ratios, genre/tag one-hot encoding
 - **Dynamic Pricing Engine**: Automatic price recommendations for TBA (to-be-announced) games
 - **Regional Market Analysis**: Chinese language support detection, multilingual monetization modeling
@@ -60,7 +60,7 @@ Valve keeps all Steam game sales data **private**, leaving developers, investors
 
 ---
 
-## 🏗️ System Architecture
+## ∿ Architecture
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -112,7 +112,7 @@ Valve keeps all Steam game sales data **private**, leaving developers, investors
 
 ---
 
-## ⚙️ How It Works
+## ⚙ Implementation Details
 
 The prediction pipeline operates in four coordinated phases:
 
@@ -123,29 +123,29 @@ The prediction pipeline operates in four coordinated phases:
                        - HTML Scraping (Langs)      - P25 / P50 / P75 Scenarios        - Econometric Breakdown
 ```
 
-### 1. 🔍 Live Data Ingestion
+### ◇ Live Data Ingestion
 * When you enter a game name or App ID (e.g. `Valheim` or `3393110`), the system performs an instant multi-layer crawl across Steam's public endpoints.
 * **Store API:** Retrieves developer, publisher, release date, genres, and pricing status.
 * **Community XML:** Safely fetches official community follower count without API keys or aggressive rate limits.
 * **Storefront HTML:** Parses user-defined community tags and detects high-value localized market support (e.g., Chinese language presence).
 
-### 2. 🧠 Feature Engineering & ML Inference
+### ◇ Feature Engineering & ML Inference
 * Prepares 40+ numerical and categorical features: follower velocity, log-transformed metrics, dynamic tag weights, and price scaling.
 * Trains/infers via a regularized **`GradientBoostingRegressor`** trained on 320+ shipped games.
 
-### 3. 💵 Econometric Revenue Simulation
+### ◇ Econometric Revenue Simulation
 * **First-Month Sales:** Forecasts expected copies sold for paid games or player conversion for Free-to-Play titles.
 * **Net Developer Revenue:** Applies Steam's standard 30% store fee.
 * **P25 / P50 / P75 Confidence Bounds:** Generates realistic Conservative, Expected, and Optimistic revenue envelopes.
 
-### 4. 📊 High-Craft Visual Intelligence
+### ◇ Visual Intelligence
 * Displays four mission-control KPI cards with tabular mono numbers.
 * Generates interactive Plotly projections comparing T+7 (first week), 1st month, and lifetime copies.
 * Provides full transparency under the Metrics tab, showing exact formulas and model distributions.
 
 ---
 
-## 🧠 Model Architecture & Performance
+## ≈ Model Architecture & Performance
 
 ### Dual-Output Regression System
 
@@ -315,7 +315,7 @@ docker run -p 8501:8501 steam-predictor
 
 ---
 
-## 🚀 Quick Start
+## ► Quick Start
 
 ### 1. Web UI (Streamlit)
 
@@ -348,7 +348,7 @@ python3 predict_cli.py
 
 ---
 
-## 📚 API Documentation
+## ◈ API Documentation
 
 ### Programmatic Usage
 
@@ -423,7 +423,7 @@ print(f"Confidence: P25={forecast['month1_low']}, P50={forecast['month1_expected
 
 ---
 
-## 📂 Project Structure
+## ◈ Project Structure
 
 ```
 steam-sales-predictor/
@@ -450,7 +450,7 @@ steam-sales-predictor/
 
 ---
 
-## 💡 Usage Examples
+## ○ Usage Examples
 
 ### Example 1: Predicting a Micro-Game
 
@@ -559,7 +559,7 @@ Contributions are welcome! To contribute:
 
 ---
 
-## 🐛 Known Limitations
+## ⚠ Known Limitations
 
 1. **Micro-games (<500 followers)**: Limited training data, higher uncertainty
 2. **TBA games**: Price recommendations are template-based, not predictive
@@ -569,7 +569,7 @@ Contributions are welcome! To contribute:
 
 ---
 
-## 🙏 Acknowledgments
+## ∞ Acknowledgments
 
 This project was inspired by and validated against:
 - **Gamalytic** (Simon Carless, Chris Zukowski)
@@ -579,7 +579,7 @@ This project was inspired by and validated against:
 
 ---
 
-## 📈 Roadmap
+## ◈ Roadmap
 
 - [ ] Advanced confidence intervals (Bayesian posterior)
 - [ ] Wishlist-to-conversion curves by genre
